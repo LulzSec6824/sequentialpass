@@ -1,14 +1,16 @@
 use std::fs::File;
-use std::io::Write;
+use std::io::{BufWriter, Write};
 
 fn main() {
-    println!("                                         ");
+    println!(" ");
     println!("___Welcome to the number generator !!___");
-    println!("Please select the number you want to generate:");
+    println!("Please select the number you want to generate:\n");
     println!("1. BL 014");
     println!("2. BL 019");
     println!("3. GP 013");
     println!("4. GP 017");
+    println!("5. ROBI 018");
+    println!("6. TELE 015");
 
     let mut input = String::new();
 
@@ -36,61 +38,73 @@ fn main() {
 }
 
 fn bl_014() {
-    let mut file = File::create("bl_014.txt").expect("Unable to create file");
+    let file = File::create("bl_014.txt").expect("Unable to create file");
+    let mut writer = BufWriter::new(file);
 
     for i in 0..=99999999 {
         let line = format!("014{:08}\n", i);
-        file.write_all(line.as_bytes())
+        writer
+            .write_all(line.as_bytes())
             .expect("Unable to write data");
     }
 }
 
 fn bl_019() {
-    let mut file = File::create("bl_019.txt").expect("Unable to create file");
+    let file = File::create("bl_019.txt").expect("Unable to create file");
+    let mut writer = BufWriter::new(file);
 
     for i in 0..=99999999 {
         let line = format!("019{:08}\n", i);
-        file.write_all(line.as_bytes())
+        writer
+            .write_all(line.as_bytes())
             .expect("Unable to write data");
     }
 }
 
 fn gp_013() {
-    let mut file = File::create("gp_013.txt").expect("Unable to create file");
+    let file = File::create("gp_013.txt").expect("Unable to create file");
+    let mut writer = BufWriter::new(file);
 
     for i in 0..=99999999 {
         let line = format!("013{:08}\n", i);
-        file.write_all(line.as_bytes())
+        writer
+            .write_all(line.as_bytes())
             .expect("Unable to write data");
     }
 }
 
 fn gp_017() {
-    let mut file = File::create("gp_017.txt").expect("Unable to create file");
+    let file = File::create("gp_017.txt").expect("Unable to create file");
+    let mut writer = BufWriter::new(file);
 
     for i in 0..=99999999 {
         let line = format!("017{:08}\n", i);
-        file.write_all(line.as_bytes())
+        writer
+            .write_all(line.as_bytes())
             .expect("Unable to write data");
     }
 }
 
 fn robi_018() {
-    let mut file = File::create("robi_018.txt").expect("Unable to create file");
+    let file = File::create("robi_018.txt").expect("Unable to create file");
+    let mut writer = BufWriter::new(file);
 
     for i in 0..=99999999 {
-        let line = format!("017{:08}\n", i);
-        file.write_all(line.as_bytes())
+        let line = format!("018{:08}\n", i);
+        writer
+            .write_all(line.as_bytes())
             .expect("Unable to write data");
     }
 }
 
 fn tele_015() {
-    let mut file = File::create("tele_015.txt").expect("Unable to create file");
+    let file = File::create("tele_015.txt").expect("Unable to create file");
+    let mut writer = BufWriter::new(file);
 
     for i in 0..=99999999 {
         let line = format!("015{:08}\n", i);
-        file.write_all(line.as_bytes())
+        writer
+            .write_all(line.as_bytes())
             .expect("Unable to write data");
     }
 }
